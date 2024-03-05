@@ -1,0 +1,73 @@
+/*!
+    @page flexio_spi_s32k148_group FLEXIO SPI
+    @brief Example application showing FlexIO SPI driver usage
+
+    ## Application description ##
+    _____
+    The purpose of this demo application is to show you the usage of the FlexIO SPI driver found
+    on the S32K148 SoC using S32 SDK API.
+
+    The application uses FlexIO SPI driver to make a data transfer of a defined size. The slave device for this example is a second FlexIO SPI driver using the same FlexIO instance, which is configured to act as a bus slave.
+    The slave and master buffers will be checked after each transfer by the application, user shall check \b isTransferOk variable to see if the transmissions are successful(Green led will turn on), otherise red led will turn on.
+
+    ## Prerequisites ##
+    _____
+    To run the example you will need to have the following items:
+    - 1 S32K148 board
+    - 1 Power Adapter 12V (if the board can't be powered from the USB)
+    - 4 Dupont male to male cable
+    - 1 Personal Computer
+    - 1 Jlink Lite Debugger (optional, users can use Open SDA)
+
+    ## Boards supported ##
+    _____
+    The following boards are supported by this application:
+    - S32K148EVB-Q176
+    - S32K148-MB
+
+    ## Hardware Wiring ##
+    _____
+    The following connections must be done to for this example application to work:
+
+    PIN FUNCTION                    |S32K148EVB-Q176           |   S32K148-MB    |
+    --------------------------------|--------------------------|-----------------|
+    FLEXIO_MASTER CS    (\b PTD19)  | J6.22 - J6.28            | J12.14 - J12.30 |
+    FLEXIO_MASTER SCK   (\b PTD18)  | J6.19 - J6.25            | J12.12 - J12.29 |
+    FLEXIO_MASTER MOSI  (\b PTC30)  | J4.13 - J2.20            | J11.1  - J13.21 |
+    FLEXIO_MASTER MISO  (\b PTA11)  | J5.6  - J2.23            | J9.22  - J12.22 |
+    FLEXIO_SLAVE  SS    (\b PTD3)   | J6.28 - J6.22            | J12.30 - J12.14 |
+    FLEXIO_SLAVE  SCK   (\b PTD2)   | J6.25 - J6.19            | J12.29 - J12.12 |
+    FLEXIO_SLAVE  MOSI  (\b PTE10)  | J2.20 - J4.13            | J13.21 - J11.1  |
+    FLEXIO_SLAVE  MISO  (\b PTE11)  | J2.23 - J5.6             | J13.22 - J9.22  |
+    RED_LED             (\b PTE21)  |RGB_RED   - wired on board| J13.12 - JP49.2 |
+    GREEN_LED           (\b PTE22)  |RGB_GREEN - wired on board| J13.9  - JP50.2 |
+
+    ## How to run ##
+
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New \b S32DS \b Project \b From... and select \b flexio_spi_s32k148. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    ####2. Generating the S32 configuration ####
+    The example will run without an active configuration, however if any changes are required, a configuration needs to be generated.
+    The initial configuration will have the same settings as the default example settings.
+    Right click on the current project, then click "Open S32 Configuration" (it has blue chip symbol on the top of the toolbar).
+    In S32 Configuration menu, click on the desired configuration (Pins, Clock, Peripherals, etc.). Clicking on any one of those will generate all the components.
+    Pay attention to any error and warning message. If any configured value is invalid, they will be shown for user.
+    Make the desired changes (if any) then click "Update Code".
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) or \b RAM (Debug_RAM) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png).
+    Wait for the build action to be completed before continuing to the next step.
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There are four debug configurations for this project:
+     Configuration Name                              | Description                                               |
+     ------------------------------------------------|-----------------------------------------------------------|
+     \b flexio_spi_s32k148_ram_pemicro               | Debug the RAM configuration using PEMicro debuggers       |
+     \b flexio_spi_s32k148_flash_pemicro             | Debug the FLASH configuration using PEMicro debuggers     |
+     \b flexio_spi_s32k148_debug_ram_jlink           | Debug the RAM configuration using Jlink debuggers         |
+     \b flexio_spi_s32k148_debug_flash_jlink         | Debug the FLASH configuration using Jlink debuggers       |
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+
+    @note For more detailed information related to S32 Design Studio usage please consult the available documentation.
+
+*/

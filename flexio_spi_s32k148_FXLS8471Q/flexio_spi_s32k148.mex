@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<configuration name="S32K148" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_10 http://mcuxpresso.nxp.com/XSD/mex_configuration_10.xsd" uuid="2a28ea94-489f-4b27-92e8-d9be16af7bcf" version="10" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <common>
+      <processor>S32K148</processor>
+      <package>S32K148_LQFP144</package>
+      <mcu_data>s32sdk_s32k1xx_rtm_402</mcu_data>
+      <cores selected="core0">
+         <core name="Cortex-M4" id="core0" description=""/>
+      </cores>
+      <description>Configuration imported from flexio_spi_s32k148</description>
+   </common>
+   <preferences>
+      <validate_boot_init_only>true</validate_boot_init_only>
+      <generate_extended_information>false</generate_extended_information>
+      <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
+      <update_include_paths>true</update_include_paths>
+   </preferences>
+   <tools>
+      <pins name="Pins" version="10.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/pin_mux.c" update_enabled="true"/>
+            <file path="board/pin_mux.h" update_enabled="true"/>
+         </generated_project_files>
+         <pins_profile>
+            <processor_version>0.0.0</processor_version>
+            <power_domains/>
+            <pin_labels>
+               <pin_label pin_num="89" pin_signal="PTD19" label="FLEXIO_M_CS"/>
+               <pin_label pin_num="88" pin_signal="PTD18" label="FLEXIO_M_SCK"/>
+               <pin_label pin_num="84" pin_signal="PTC30" label="FLEXIO_M_MOSI"/>
+               <pin_label pin_num="135" pin_signal="PTA11" label="FLEXIO_M_MISO"/>
+               <pin_label pin_num="6" pin_signal="PTE10" label="FLEXIO_S_MOSI"/>
+               <pin_label pin_num="5" pin_signal="PTE11" label="FLEXIO_S_MISO"/>
+               <pin_label pin_num="102" pin_signal="PTD2" label="FLEXIO_S_SCK"/>
+               <pin_label pin_num="101" pin_signal="PTD3" label="FLEXIO_S_SS"/>
+               <pin_label pin_num="29" pin_signal="PTD15" label="LED_GREEN" identifier="LED_GREEN"/>
+               <pin_label pin_num="28" pin_signal="PTD16" label="LED_RED" identifier="LED_RED"/>
+               <pin_label pin_num="128" pin_signal="PTE21" label="LED_RED" identifier="LED_RED"/>
+               <pin_label pin_num="129" pin_signal="PTE22" label="LED_GREEN" identifier="LED_GREEN"/>
+               <pin_label pin_num="131" pin_signal="PTE23" label="LED_BLUE" identifier="LED_BLUE"/>
+            </pin_labels>
+         </pins_profile>
+         <functions_list>
+            <function name="BOARD_InitPins">
+               <description>Configures pin routing and optionally pin electrical features.</description>
+               <options>
+                  <callFromInitBoot>true</callFromInitBoot>
+                  <coreID>core0</coreID>
+               </options>
+               <dependencies/>
+               <pins>
+                  <pin peripheral="FLEXIO" signal="fxio_d, 2" pin_num="88" pin_signal="PTD18"/>
+                  <pin peripheral="FLEXIO" signal="fxio_d, 3" pin_num="89" pin_signal="PTD19"/>
+                  <pin peripheral="PORTE" signal="port, 21" pin_num="128" pin_signal="PTE21">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 22" pin_num="129" pin_signal="PTE22">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 23" pin_num="131" pin_signal="PTE23">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FLEXIO" signal="fxio_d, 4" pin_num="102" pin_signal="PTD2"/>
+                  <pin peripheral="FLEXIO" signal="fxio_d, 5" pin_num="101" pin_signal="PTD3"/>
+                  <pin peripheral="PORTE" signal="port, 14" pin_num="20" pin_signal="PTE14">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                        <pin_feature name="PE" value="state_1"/>
+                        <pin_feature name="PS" value="state_1"/>
+                     </pin_features>
+                  </pin>
+               </pins>
+            </function>
+         </functions_list>
+      </pins>
+      <clocks name="Clocks" version="8.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/clock_config.c" update_enabled="true"/>
+            <file path="board/clock_config.h" update_enabled="true"/>
+         </generated_project_files>
+         <clocks_profile>
+            <processor_version>0.0.0</processor_version>
+         </clocks_profile>
+         <clock_configurations>
+            <clock_configuration name="BOARD_BootClockRUN">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="SCG.EXTAL" description="&apos;EXTAL&apos; (Pins tool id: SCG.EXTAL, Clocks tool id: SCG.EXTAL) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SCG.EXTAL" description="&apos;EXTAL&apos; (Pins tool id: SCG.EXTAL, Clocks tool id: SCG.EXTAL) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SCG.XTAL" description="&apos;XTAL&apos; (Pins tool id: SCG.XTAL, Clocks tool id: SCG.XTAL) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="SCG.XTAL" description="&apos;XTAL&apos; (Pins tool id: SCG.XTAL, Clocks tool id: SCG.XTAL) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="RTC.rtc_clkin" description="&apos;RTC_CLKIN&apos; (Pins tool id: RTC.rtc_clkin, Clocks tool id: RTC.RTC_CLKIN) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="RTC.rtc_clkin" description="&apos;RTC_CLKIN&apos; (Pins tool id: RTC.rtc_clkin, Clocks tool id: RTC.RTC_CLKIN) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources/>
+               <clock_outputs>
+                  <clock_output id="ADC0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="ADC1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="BUS_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLKOUT.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CMP0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CORE_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CRC0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="DMA0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="DMAMUX0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="EIM0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="ENET0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="ERM0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="EWM0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FIRCDIV1_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FIRCDIV2_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLASH_CLK.outFreq" value="24 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXCAN0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXCAN1_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXCAN2_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTFC0_CLK.outFreq" value="24 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM2_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM3_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM4_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM5_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM6_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FTM7_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FlexIO0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPI2C0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPI2C1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPIT0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPO_1K_CLK.outFreq" value="1 kHz" locked="false" accuracy=""/>
+                  <clock_output id="LPO_CLK.outFreq" value="128 kHz" locked="false" accuracy=""/>
+                  <clock_output id="LPSPI0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPSPI1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPSPI2_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPTMR0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPUART0_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPUART1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPUART2_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MPU0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MSCM0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PDB0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PDB1_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PORTA_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PORTB_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PORTC_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PORTD_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PORTE_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PREDIV_SYS_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="QSPI0_2x_SFIF_CLK.outFreq" value="112 MHz" locked="false" accuracy=""/>
+                  <clock_output id="QSPI0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="QSPI0_MODULE_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="QSPI0_SFIF_CLK.outFreq" value="56 MHz" locked="false" accuracy=""/>
+                  <clock_output id="QSPI0_SFIF_CLK_HYP_PREMUX.outFreq" value="56 MHz" locked="false" accuracy=""/>
+                  <clock_output id="RTC0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="RTC_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SAI0_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SAI1_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SCGCLKOUT.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SIRCDIV1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SIRCDIV2_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SOSCDIV1_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SOSCDIV2_CLK.outFreq" value="8 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SPLLDIV1_CLK.outFreq" value="112 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SPLLDIV2_CLK.outFreq" value="112 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SPLL_CLK_OUT.outFreq" value="112 MHz" locked="false" accuracy=""/>
+                  <clock_output id="SYS_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="TRACE_CLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="HSRUN:SCG.DIVBUS.scale" value="2" locked="true"/>
+                  <setting id="HSRUN:SCG.DIVCORE.scale" value="1" locked="true"/>
+                  <setting id="HSRUN:SCG.DIVSLOW.scale" value="4" locked="true"/>
+                  <setting id="HSRUN:SCG.SCSSEL.sel" value="SCG.SPLL_CLK" locked="false"/>
+                  <setting id="RUN:SCG.DIVBUS.scale" value="1" locked="true"/>
+                  <setting id="RUN:SCG.DIVCORE.scale" value="1" locked="true"/>
+                  <setting id="RUN:SCG.DIVSLOW.scale" value="2" locked="true"/>
+                  <setting id="SCG.DIVBUS.scale" value="1" locked="true"/>
+                  <setting id="SCG.DIVCORE.scale" value="1" locked="true"/>
+                  <setting id="SCG.DIVSLOW.scale" value="2" locked="true"/>
+                  <setting id="VLPR:SCG.DIVBUS.scale" value="1" locked="true"/>
+                  <setting id="VLPR:SCG.DIVCORE.scale" value="2" locked="true"/>
+                  <setting id="VLPR:SCG.DIVSLOW.scale" value="4" locked="true"/>
+                  <setting id="VLPR:SCG.SCSSEL.sel" value="SCG.SIRC" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>true</called_from_default_init>
+            </clock_configuration>
+         </clock_configurations>
+      </clocks>
+      <ddr name="DDR" version="1.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <components/>
+      </ddr>
+      <dcd name="DCD" version="1.0" enabled="false" update_project_code="true" isSelfTest="false">
+         <generated_project_files/>
+         <dcdx_profile>
+            <processor_version>N/A</processor_version>
+         </dcdx_profile>
+         <dcdx_configurations/>
+      </dcd>
+      <ivt name="IVT" version="1.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <ivt_profile>
+            <processor_version>N/A</processor_version>
+         </ivt_profile>
+      </ivt>
+      <quadspi name="QuadSPI" version="1.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <quadspi_profile>
+            <processor_version>N/A</processor_version>
+         </quadspi_profile>
+      </quadspi>
+      <periphs name="Peripherals" version="10.0" enabled="true" update_project_code="true">
+         <dependencies>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.osif" description="OSIF driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.osif" description="Unsupported version of the OSIF driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_spi" description="Flexio_spi Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_spi" description="Unsupported version of the Flexio_spi Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="eDMA Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="Unsupported version of the eDMA Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+         </dependencies>
+         <generated_project_files>
+            <file path="board/peripherals_edma_config_1.c" update_enabled="true"/>
+            <file path="board/peripherals_edma_config_1.h" update_enabled="true"/>
+            <file path="board/peripherals_flexio_spi1.c" update_enabled="true"/>
+            <file path="board/peripherals_flexio_spi1.h" update_enabled="true"/>
+            <file path="board/peripherals_osif1.c" update_enabled="true"/>
+            <file path="board/peripherals_osif1.h" update_enabled="true"/>
+            <file path="board/sdk_project_config.h" update_enabled="true"/>
+         </generated_project_files>
+         <peripherals_profile>
+            <processor_version>0.0.0</processor_version>
+         </peripherals_profile>
+         <functional_groups>
+            <functional_group name="BOARD_InitPeripherals" uuid="c8c315ab-21c4-45ed-bf54-eea7465b9ab6" called_from_default_init="true" id_prefix="" core="core0">
+               <description></description>
+               <options/>
+               <dependencies/>
+               <instances>
+                  <instance name="osif1" uuid="84e99d84-8310-4307-b36d-8a55294961a2" type="osif" type_id="osif" mode="general" enabled="true" comment="" custom_name_enabled="true" editing_lock="false">
+                     <config_set name="osif"/>
+                  </instance>
+                  <instance name="flexio_spi1" uuid="80599427-2c5b-40d3-9b0c-0425a376a372" type="flexio_spi_config" type_id="flexio_spi" mode="general" peripheral="FLEXIO" enabled="true" comment="" custom_name_enabled="true" editing_lock="false">
+                     <config_set name="flexio_spi_driver">
+                        <array name="flexio_spi_master_Configuration">
+                           <struct name="0">
+                              <setting name="name" value="flexio_spi1_MasterConfig0"/>
+                              <setting name="readonly" value="false"/>
+                              <setting name="baudRate" value="100000"/>
+                              <setting name="driverType" value="FLEXIO_DRIVER_TYPE_INTERRUPTS"/>
+                              <setting name="bitOrder" value="FLEXIO_SPI_TRANSFER_MSB_FIRST"/>
+                              <setting name="transferSize" value="FLEXIO_SPI_TRANSFER_1BYTE"/>
+                              <setting name="clockPolarity" value="0"/>
+                              <setting name="clockPhase" value="0"/>
+                              <setting name="mosiPin" value="3"/>
+                              <setting name="misoPin" value="2"/>
+                              <setting name="sckPin" value="4"/>
+                              <setting name="ssPin" value="5"/>
+                              <setting name="callback" value="NULL"/>
+                           </struct>
+                        </array>
+                        <array name="flexio_spi_slave_Configuration"/>
+                     </config_set>
+                  </instance>
+                  <instance name="edma_config_1" uuid="ccaaa138-ae63-4888-999d-bc2b705a60df" type="edma_config" type_id="edma" mode="general" peripheral="EDMA" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="edma_driver">
+                        <struct name="settings_edmaUserCfg">
+                           <setting name="userStateStruct" value="dmaController_State"/>
+                           <array name="array_userCfgStructs">
+                              <struct name="0">
+                                 <setting name="userCfgName" value="dmaController_InitConfig"/>
+                                 <setting name="cfgType" value="edma_user_config_t"/>
+                                 <setting name="readOnly" value="true"/>
+                                 <setting name="chnArbitration" value="EDMA_ARBITRATION_FIXED_PRIORITY"/>
+                                 <setting name="haltOnError" value="false"/>
+                              </struct>
+                           </array>
+                        </struct>
+                        <struct name="settings_array_edmaChCfg">
+                           <array name="array_chCfgStructs">
+                              <struct name="0">
+                                 <setting name="chStateStructName" value="dmaControllerChn0_State"/>
+                                 <setting name="chConfigName" value="dmaControllerChn0_Config"/>
+                                 <setting name="chType" value="edma_channel_config_t"/>
+                                 <setting name="virtCh" value="0"/>
+                                 <setting name="chPrio" value="EDMA_CHN_DEFAULT_PRIORITY"/>
+                                 <setting name="chReq" value="EDMA_REQ_LPUART0_RX"/>
+                                 <setting name="chCallback" value="NULL"/>
+                                 <setting name="chCallbackParam" value="NULL"/>
+                                 <setting name="enableTrigger" value="false"/>
+                              </struct>
+                           </array>
+                        </struct>
+                     </config_set>
+                  </instance>
+               </instances>
+            </functional_group>
+         </functional_groups>
+         <components/>
+      </periphs>
+   </tools>
+</configuration>
